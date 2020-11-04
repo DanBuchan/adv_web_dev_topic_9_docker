@@ -1,0 +1,32 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.renderControlCharacters": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/envs/**": true
+    },
+    "workbench.startupEditor": "none",
+    "actionButtons": {
+      "defaultColor": "#ff0034", // Can also use string color names.
+      "commands": [
+          {
+              "name": "Submit to Coursera",
+              "color": "yellow",
+              "singleInstance": true,
+              "command": "pip3 list", // This is executed in the terminal.
+          }
+      ]
+  }
+
+}

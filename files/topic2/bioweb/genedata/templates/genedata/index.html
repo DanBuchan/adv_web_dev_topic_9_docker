@@ -1,0 +1,18 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>D.Bucheria Genes</h1>
+    <table>
+      <tr><th>Gene ID</th></tr>
+
+      {% for gene in genes %}
+        <tr><td><a href="/gene/{{gene.pk}}" >{{ gene }}</a></td></tr>
+      {% endfor %}
+    </table>
+    <h2>Select gene location</h2>
+    <a href="/list/Chromosome">Chromosome</a> OR <a href="/list/Plasmid">Plasmid</a>
+    <h2>Show Positive Chromosome</h2>
+    <a href="/poslist/">Show This List</a>
+  </body>
+</html>

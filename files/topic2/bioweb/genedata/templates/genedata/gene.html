@@ -1,0 +1,29 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>{{gene}}</h1>
+    <table>
+      <tr><th>Key</th><th>Value</th></tr>
+        <tr><td>Entity: </td><td>{{gene.entity}}</td></tr>
+        <tr><td>Start: </td><td>{{gene.start}}</td></tr>
+        <tr><td>Stop: </td><td>{{gene.stop}}</td></tr>
+        <tr><td>Sense: </td><td>{{gene.sense}}</td></tr>
+        <tr><td>Start Codon: </td><td>{{gene.start_codon}}</td></tr>
+        {% with seq=gene.sequencing %}
+            <tr><td>Sequencing Factory:
+            </td><td>{{seq.sequencing_factory}}</td></tr>
+            <tr><td>Factory Location: </td><td>{{seq.factory_location}}</td></tr>
+        {% endwith %}
+        {% with ec=gene.ec %}
+            <tr><td>EC Name: </td><td>{{ec.ec_name}}</td></tr>
+        {% endwith %}
+        {% with links=gene.geneattributelink_set.all %}
+           {% for link in links %}
+               <tr><td>{{link.attribute.key}}</td><td>{{link.attribute.value}}</td></tr>
+             {% endfor %}
+         {% endwith %}
+    </table>
+    <a href="/delete/{{gene.pk}}">DELETE RECORD</a>
+  </body>
+</html>

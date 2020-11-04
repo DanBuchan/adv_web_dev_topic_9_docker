@@ -1,0 +1,13 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Filtered List: {{type}}</h1>
+    <table>
+      <tr><th>Gene ID</th></tr>
+      {% for gene in genes %}
+      <tr><td><a href="/gene/{{gene.pk}}">{{gene}}</a></td></tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+  {% block content %}
+    <h1>Simple Title For This Page</h1>
+    <p>
+      Name: {% name.upper() %}<br />
+      Address: {{ address }}
+      {% if True %}Hello there.{% endif %}
+    </p>
+  {% endblock %}

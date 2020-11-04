@@ -1,0 +1,20 @@
+{% extends "./base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+<h2>Current EC Names</h2>
+<table>
+  <tr><th>EC Name</th></th>
+    {% for ec in ecs %}
+      <tr><td>{{ ec }}</td></tr>
+    {% endfor %}
+</table>
+
+<br />
+<h2>Add New EC Name</h2>
+<form action="/create_ec/" method="post"  class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="Submit">
+</form>
+{% endblock%}

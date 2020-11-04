@@ -1,0 +1,6 @@
+gene_id,entity,start,stop,sequencing_factory,factory_locaton,sense,start_codon,enzyme_class,gene_type,gene_product,attributes
+Gene1,Chromosome,190,255,Sanger,UK,+,M,oxidoreductase,gene:mrna;cds:protein,ID:b001;Name:thrL;biotype:protein_coding;description:Fructokinase
+Gene2,Chromosome,375,566,Sanger,UK,-,M,transferase,gene:mrna;cds:protein,ID:b002;Name:fasT;biotype:protein_coding
+Gene3,Chromosome,780,980,Sanger,UK,-,M,oxidoreductase,gene:mrna;cds:protein,ID:b003;Name:speK;biotype:protein_coding
+Gene4,Plasmid,558,696,Sanger,UK,U,M,transferase,gene:mrna;cds:protein,biotype:protein_coding
+Gene5,Plasmid,786,888,Sanger,UK,U,M,transferase,gene:mrna;cds:protein,biotype:protein_coding

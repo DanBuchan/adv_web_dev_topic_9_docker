@@ -1,0 +1,9 @@
+{
+  "name": "awd_topic1",
+  "httpPort": 8000,
+  "mounts": [
+    {
+      "path": "/home/coder/project"
+    }
+  ]
+}

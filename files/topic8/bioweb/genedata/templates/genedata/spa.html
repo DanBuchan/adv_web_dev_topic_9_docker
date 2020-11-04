@@ -1,0 +1,61 @@
+{% load bootstrap4 %}
+{% load my_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Toy Gene data website">
+    <meta name="keywords" content="HTML,gene,genes,advanced,web,development">
+    <meta name="author" content="D.Buchan">
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link rel="stylesheet" type="text/css" href="../static/css/genedata.css">
+    <script src="../static/js/spa.js"></script>
+  </head>
+  <body onload="initialisePage()">
+
+  <nav class="navbar navbar-expand-md sticky-top flex-column">
+     <div class="w-100 d-flex">
+       <div class="navbar-header" id="header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/202002_Laboratory_instrument_dna.svg" id="logo" alt="dna logo">
+          <h1 id="application_title">Gene Browser</h1>
+      </div>
+    </div>
+    <div class="w-100 d-flex">
+      <ul class="navbar-nav mr-auto" id="navigation">
+         <li class="nav-item active">
+          <a class="nav-link" href="javascript:void(0);" onClick="writeInitialContent();">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+          <a class="nav-link" href="https://www.ebi.ac.uk/">EBI <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+         <a class="nav-link" href="https://www.uniprot.org/">Uniprot <span class="sr-only">(current)</span></a>
+         </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4" id="gene_list">
+        <h1>D.Bucha Genes</h1>
+              <div id="gene_table">NO TABLE</div>
+      </div>
+
+      <div class="col-sm-8" id="content">
+        <div id="dynamic_content">NO CONTENT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" id="footer">
+          <hr>
+          <p>Author: D. Buchan. Date: {% todays_date %}
+        </div>
+    </div>
+  </div>
+    </body>
+  </html>

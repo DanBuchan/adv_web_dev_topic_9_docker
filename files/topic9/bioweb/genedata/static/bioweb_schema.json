@@ -1,0 +1,823 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/api/genes": {
+      "get": {
+        "operationId": "listGenes",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "gene_id": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "gene_id"
+                    ]
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/gene/{id}/": {
+      "get": {
+        "operationId": "RetrieveGene",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "A unique integer value identifying this gene.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "gene_id": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "entity": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "start": {
+                      "type": "integer",
+                      "maximum": 2147483647,
+                      "minimum": -2147483648
+                    },
+                    "stop": {
+                      "type": "integer",
+                      "maximum": 2147483647,
+                      "minimum": -2147483648
+                    },
+                    "sense": {
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    "start_codon": {
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    "ec": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "readOnly": true
+                        },
+                        "ec_name": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      },
+                      "required": [
+                        "ec_name"
+                      ],
+                      "type": "object"
+                    },
+                    "sequencing": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "readOnly": true
+                        },
+                        "sequencing_factory": {
+                          "type": "string",
+                          "maxLength": 256
+                        },
+                        "factory_location": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      },
+                      "required": [
+                        "sequencing_factory",
+                        "factory_location"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "gene_id",
+                    "entity",
+                    "sense",
+                    "ec",
+                    "sequencing"
+                  ]
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "CreateGene",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "A unique integer value identifying this gene.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "gene_id": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "entity": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "start": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "stop": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "sense": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "start_codon": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "ec": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "ec_name": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "ec_name"
+                    ],
+                    "type": "object"
+                  },
+                  "sequencing": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "sequencing_factory": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "factory_location": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "sequencing_factory",
+                      "factory_location"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "gene_id",
+                  "entity",
+                  "sense",
+                  "ec",
+                  "sequencing"
+                ]
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "gene_id": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "entity": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "start": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "stop": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "sense": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "start_codon": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "ec": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "ec_name": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "ec_name"
+                    ],
+                    "type": "object"
+                  },
+                  "sequencing": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "sequencing_factory": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "factory_location": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "sequencing_factory",
+                      "factory_location"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "gene_id",
+                  "entity",
+                  "sense",
+                  "ec",
+                  "sequencing"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "gene_id": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "entity": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "start": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "stop": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "sense": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "start_codon": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "ec": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "ec_name": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "ec_name"
+                    ],
+                    "type": "object"
+                  },
+                  "sequencing": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "sequencing_factory": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "factory_location": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "sequencing_factory",
+                      "factory_location"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "gene_id",
+                  "entity",
+                  "sense",
+                  "ec",
+                  "sequencing"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "gene_id": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "entity": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "start": {
+                      "type": "integer",
+                      "maximum": 2147483647,
+                      "minimum": -2147483648
+                    },
+                    "stop": {
+                      "type": "integer",
+                      "maximum": 2147483647,
+                      "minimum": -2147483648
+                    },
+                    "sense": {
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    "start_codon": {
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    "ec": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "readOnly": true
+                        },
+                        "ec_name": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      },
+                      "required": [
+                        "ec_name"
+                      ],
+                      "type": "object"
+                    },
+                    "sequencing": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "readOnly": true
+                        },
+                        "sequencing_factory": {
+                          "type": "string",
+                          "maxLength": 256
+                        },
+                        "factory_location": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      },
+                      "required": [
+                        "sequencing_factory",
+                        "factory_location"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "gene_id",
+                    "entity",
+                    "sense",
+                    "ec",
+                    "sequencing"
+                  ]
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "UpdateGene",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "A unique integer value identifying this gene.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "gene_id": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "entity": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "start": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "stop": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "sense": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "start_codon": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "ec": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "ec_name": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "ec_name"
+                    ],
+                    "type": "object"
+                  },
+                  "sequencing": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "sequencing_factory": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "factory_location": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "sequencing_factory",
+                      "factory_location"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "gene_id",
+                  "entity",
+                  "sense",
+                  "ec",
+                  "sequencing"
+                ]
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "gene_id": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "entity": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "start": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "stop": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "sense": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "start_codon": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "ec": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "ec_name": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "ec_name"
+                    ],
+                    "type": "object"
+                  },
+                  "sequencing": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "sequencing_factory": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "factory_location": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "sequencing_factory",
+                      "factory_location"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "gene_id",
+                  "entity",
+                  "sense",
+                  "ec",
+                  "sequencing"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "gene_id": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "entity": {
+                    "type": "string",
+                    "maxLength": 256
+                  },
+                  "start": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "stop": {
+                    "type": "integer",
+                    "maximum": 2147483647,
+                    "minimum": -2147483648
+                  },
+                  "sense": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "start_codon": {
+                    "type": "string",
+                    "maxLength": 1
+                  },
+                  "ec": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "ec_name": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "ec_name"
+                    ],
+                    "type": "object"
+                  },
+                  "sequencing": {
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "readOnly": true
+                      },
+                      "sequencing_factory": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "factory_location": {
+                        "type": "string",
+                        "maxLength": 256
+                      }
+                    },
+                    "required": [
+                      "sequencing_factory",
+                      "factory_location"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "gene_id",
+                  "entity",
+                  "sense",
+                  "ec",
+                  "sequencing"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "gene_id": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "entity": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "start": {
+                      "type": "integer",
+                      "maximum": 2147483647,
+                      "minimum": -2147483648
+                    },
+                    "stop": {
+                      "type": "integer",
+                      "maximum": 2147483647,
+                      "minimum": -2147483648
+                    },
+                    "sense": {
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    "start_codon": {
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    "ec": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "readOnly": true
+                        },
+                        "ec_name": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      },
+                      "required": [
+                        "ec_name"
+                      ],
+                      "type": "object"
+                    },
+                    "sequencing": {
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "readOnly": true
+                        },
+                        "sequencing_factory": {
+                          "type": "string",
+                          "maxLength": 256
+                        },
+                        "factory_location": {
+                          "type": "string",
+                          "maxLength": 256
+                        }
+                      },
+                      "required": [
+                        "sequencing_factory",
+                        "factory_location"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "gene_id",
+                    "entity",
+                    "sense",
+                    "ec",
+                    "sequencing"
+                  ]
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "DestroyGene",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "A unique integer value identifying this gene.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

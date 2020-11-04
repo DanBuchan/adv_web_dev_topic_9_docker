@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+setInterval(function() {
+  console.log("Hey");
+  const req = new XMLHttpRequest();
+  req.onreadystatechange = function(){
+     if (req.readyState === 4) {
+       console.log("Got Data")
+       html = "<table><tr>";
+       data = JSON.parse(req.response)
+       data.forEach(function(obj)
+       { html += "<td>"+obj.name+"<br />";
+         html += "<img src=\""+obj.thumbnail+"\"></td>" });
+       html += "</tr></table>";
+       document.getElementById("images").innerHTML = html;
+     }
+  };
+  req.open("GET", "/api/images/");
+  req.send();
+  }, 5000);
+</script>
+</head>
+<body>
+  <div id="images"></div>
+  <div id="input">
+    <form action="/api/image/" method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="image">Upload Image:</label><br>
+        <input type="file" id="image" name="image"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>
