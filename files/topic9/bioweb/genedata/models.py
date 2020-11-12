@@ -9,7 +9,6 @@ class AppUser(models.Model):
     def __unicode__(self):
         return self.user.username
 
-
 class EC(models.Model):
     ec_name = models.CharField(max_length=256, null=False, blank=False)
 

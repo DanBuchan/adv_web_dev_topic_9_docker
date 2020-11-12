@@ -25,12 +25,10 @@ SECRET_KEY = '))om(68r(=jl)lzj#70zkhv*h8x25h9ga$w*i($&r6fsup#tm%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.coursera-apps.org',
-]
-
+ALLOWED_HOSTS = ['localhost',
+                 '127.0.0.1',
+                 '.coursera-apps.org',
+                 '.coursera.org', ]
 
 # Application definition
 

@@ -18,20 +18,21 @@
       <a class="nav-link" href="https://www.uniprot.org/">Uniprot <span class="sr-only">(current)</span></a>
       </li>
       {% if user.is_authenticated %}
-       <li class="nav-item active">
-         <a class="nav-link" href="#"> : hello {{ user.username }} <span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item active">
-        <a class="nav-link" href="../logout"> : Logout<span class="sr-only">(current)</span></a>
-       </li>
-       {% else %}
-       <li class="nav-item active">
-         <a class="nav-link" href="register"> : Register <span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item active">
-        <a class="nav-link" href="login"> Log In <span class="sr-only">(current)</span></a>
-       </li>
-       {% endif %}
+      <li class="nav-item active">
+      <a class="nav-link" href="#"> : Hello {{ user.username }} <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="../logout/"> : Logout<span class="sr-only">(current)</span></a>
+    </li>
+    {% else %}
+    <li class="nav-item active">
+      <a class="nav-link" href="../register/"> : Register <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active">
+     <a class="nav-link" href="../login/"> Log In <span class="sr-only">(current)</span></a>
+    </li>
+    {% endif %}
+
    </ul>
    </div>
 </nav>

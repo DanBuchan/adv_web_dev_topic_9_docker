@@ -25,8 +25,10 @@ SECRET_KEY = 'ul!h2flkt1m0*7hsvvf0w0g9g6g)hpnouuxm1e07%hw6u*vptv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost',
+                 '127.0.0.1',
+                 '.coursera-apps.org',
+                 '.coursera.org', ]
 
 # Application definition
 

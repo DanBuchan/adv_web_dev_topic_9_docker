@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('../')
+    return HttpResponseRedirect('../test')
 
 
 def user_login(request):
@@ -31,13 +31,14 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('../')
+                return HttpResponseRedirect('../test')
             else:
                 return HttpResponse("Your account is disabled.")
         else:
             return HttpResponse("Invalid login details supplied.")
     else:
         return render(request, 'genedata/login.html', {'master_genes': master_genes})
+
 
 def register(request):
     master_genes = Gene.objects.all()
@@ -70,7 +71,6 @@ def register(request):
                   {'user_form': user_form,
                     'profile_form': profile_form,
                     'registered': registered, 'master_genes': master_genes})
-
 
 def SPA(request):
     return render(request, 'genedata/spa.html')
