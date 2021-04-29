@@ -106,7 +106,7 @@ RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
 RUN echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure --frontend noninteractive locales
-RUN echo 'if [ ! -d /home/coder/project/django_databases ]; then runuser -l  coder -c "mkdir /home/coder/project/django_databases"; runuser -l  coder -c "cp -r /home/coder/project/tmp_db/* /home/coder/project/django_databases/"; fi' >> ~/.bashrc
+RUN echo 'if [ ! -d /home/coder/project/django_databases ]; then runuser -l  coder -c "mkdir /home/coder/project/django_databases"; runuser -l  coder -c "cp -Lr /home/coder/project/tmp_db/* /home/coder/project/django_databases/"; fi' >> ~/.bashrc
 RUN echo 'if [ ! -d /home/coder/project/django_databases/pg_commit_ts ]; then runuser -l  coder -c "mkdir /home/coder/project/django_databases/pg_commit_ts 2> /dev/null"; fi' >> ~/.bashrc
 RUN echo 'if [ ! -d /home/coder/project/django_databases/pg_dynshmem ]; then runuser -l  coder -c "mkdir /home/coder/project/django_databases/pg_dynshmem 2> /dev/null"; fi' >> ~/.bashrc
 RUN echo 'if [ ! -d /home/coder/project/django_databases/pg_replslot ]; then runuser -l  coder -c "mkdir /home/coder/project/django_databases/pg_replslot 2> /dev/null"; fi' >> ~/.bashrc
